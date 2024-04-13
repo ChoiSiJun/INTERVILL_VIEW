@@ -35,12 +35,22 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fontsource/inter": "5.0.17",
+    "@fontsource/plus-jakarta-sans": "5.0.19",
+    "@fontsource/roboto-mono": "5.0.17",
+    "@hookform/resolvers": "3.3.4",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
     "@mui/x-charts": "^7.1.0",
     "@mui/x-data-grid": "^7.1.1",
+    "@mui/x-date-pickers": "^7.2.0",
+    "@phosphor-icons/react": "2.0.15",
+    "apexcharts": "3.46.0",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
+    "dayjs": "1.11.10",
+    "next": "^14.2.1",
+    "react-apexcharts": "1.4.1",
     "react-bootstrap": "^2.10.1",
     "react-toastify": "^10.0.5"
   }
