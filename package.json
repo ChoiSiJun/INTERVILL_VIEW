@@ -1,5 +1,5 @@
 {
-  "name": "liberty5",
+  "name": "intervill",
   "packageManager": "yarn@4.1.0",
   "private": true,
   "workspaces": {
@@ -29,7 +29,8 @@
   },
   "scripts": {
     "core": "yarn workspace @packages/core",
-    "zmng": "yarn workspace @packages/zmng"
+    "admin": "yarn workspace @packages/admin",
+    "user": "yarn workspace @packages/user"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

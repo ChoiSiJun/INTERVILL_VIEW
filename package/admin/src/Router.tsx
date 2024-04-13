@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AppContainer from '@ui-kit/app/appContainer';
 import Dashboard from '@features/dashboard/components/template/Dashboard';
-import MemberList from '@module/member/components/template/MemberList';
+import MemberList from '@module/member/components/MemberList';
 
 function LibertyRouter() {
   return (

@@ -1,5 +1,6 @@
 //멤버 모듈 Import
 import { MemberModule } from '@common/slice/MemberModuleData';
+import { SurveyModule } from '@common/slice/SurveyModuleData';
 
 //모듈 정의 ( 사용권한에 따라 오픈 )
 const moduleInfo = [
@@ -9,16 +10,9 @@ const moduleInfo = [
     menuList: MemberModule,
   },
   {
-    moduleCode: 'CMS',
-    moduleName: 'CMS',
-  },
-  {
-    moduleCode: 'LMS',
-    moduleName: 'LMS',
-  },
-  {
-    moduleCode: 'LAS',
-    moduleName: 'LAS',
+    moduleCode: 'SURVEY',
+    moduleName: '설문조사',
+    menuList: SurveyModule,
   },
 ];
 

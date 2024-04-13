@@ -9,12 +9,6 @@ export const MemberModule = [
         menuName: '검색',
         menuPath: '/',
       },
-
-      {
-        menuCode: 'MEMBER_LIST_INSERT',
-        menuName: '반입',
-        menuPath: '/',
-      },
     ],
   },
   {

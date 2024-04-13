@@ -21,7 +21,10 @@
       "path": "./packages/core"
     },
     {
-      "path": "./packages/zmng"
+      "path": "./packages/admin"
+    },
+    {
+      "path": "./packages/user"
     }
   ]
 }
