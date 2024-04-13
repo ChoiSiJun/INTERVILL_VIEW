@@ -1105,9 +1105,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@packages/user@workspace:package/user":
+"@packages/home@workspace:package/home":
   version: 0.0.0-use.local
-  resolution: "@packages/user@workspace:package/user"
+  resolution: "@packages/home@workspace:package/home"
   dependencies:
     "@types/react": "npm:^18.2.66"
     "@types/react-dom": "npm:^18.2.22"

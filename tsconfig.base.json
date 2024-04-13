@@ -24,7 +24,7 @@
       "path": "./packages/admin"
     },
     {
-      "path": "./packages/user"
+      "path": "./packages/home"
     }
   ]
 }

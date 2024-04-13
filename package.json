@@ -30,7 +30,7 @@
   "scripts": {
     "core": "yarn workspace @packages/core",
     "admin": "yarn workspace @packages/admin",
-    "user": "yarn workspace @packages/user"
+    "home": "yarn workspace @packages/home"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
