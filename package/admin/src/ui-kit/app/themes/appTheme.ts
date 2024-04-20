@@ -1,31 +1,146 @@
 import { createTheme } from '@mui/material/styles';
-import { green, blue } from '@mui/material/colors';
 
 export const appTheme = createTheme({
+  direction: 'ltr',
   palette: {
     primary: {
-      main: blue[600],
+      main: '#5D87FF',
+      light: '#ECF2FF',
+      dark: '#4570EA',
     },
     secondary: {
-      main: green[500],
+      main: '#49BEFF',
+      light: '#E8F7FF',
+      dark: '#23afdb',
     },
+    success: {
+      main: '#13DEB9',
+      light: '#E6FFFA',
+      dark: '#02b3a9',
+      contrastText: '#ffffff',
+    },
+    info: {
+      main: '#539BFF',
+      light: '#EBF3FE',
+      dark: '#1682d4',
+      contrastText: '#ffffff',
+    },
+    error: {
+      main: '#FA896B',
+      light: '#FDEDE8',
+      dark: '#f3704d',
+      contrastText: '#ffffff',
+    },
+    warning: {
+      main: '#FFAE1F',
+      light: '#FEF5E5',
+      dark: '#ae8e59',
+      contrastText: '#ffffff',
+    },
+    grey: {
+      100: '#F2F6FA',
+      200: '#EAEFF4',
+      300: '#DFE5EF',
+      400: '#7C8FAC',
+      500: '#5A6A85',
+      600: '#2A3547',
+    },
+    text: {
+      primary: '#2A3547',
+      secondary: '#5A6A85',
+    },
+    action: {
+      disabledBackground: 'rgba(73,82,88,0.12)',
+      hoverOpacity: 0.02,
+      hover: '#f6f9fc',
+    },
+    divider: '#e5eaef',
   },
-
+  shadows: [
+    'none',
+    '0px 2px 3px rgba(0,0,0,0.10)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 2px 2px -2px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 3px 4px -2px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 3px 4px -2px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 4px 6px -2px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 4px 6px -2px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 4px 8px -2px rgba(0,0,0,0.25)',
+    '0 9px 17.5px rgb(0,0,0,0.05)',
+    'rgb(145 158 171 / 30%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 7px 12px -4px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 6px 16px -4px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 7px 16px -4px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 8px 18px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 9px 18px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 10px 20px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 11px 20px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 12px 22px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 13px 22px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 14px 24px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 16px 28px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 18px 30px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 20px 32px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 22px 34px -8px rgba(0,0,0,0.25)',
+    '0 0 1px 0 rgba(0,0,0,0.31), 0 24px 36px -8px rgba(0,0,0,0.25)',
+  ],
   typography: {
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-
-    fontSize: 16, // 글꼴 크기
+    fontFamily: "'Plus Jakarta Sans', sans-serif;",
+    h1: {
+      fontWeight: 600,
+      fontSize: '2.25rem',
+      lineHeight: '2.75rem',
+      fontFamily: "'Plus Jakarta Sans', sans-serif;",
+    },
+    h2: {
+      fontWeight: 600,
+      fontSize: '1.875rem',
+      lineHeight: '2.25rem',
+      fontFamily: "'Plus Jakarta Sans', sans-serif;",
+    },
+    h3: {
+      fontWeight: 600,
+      fontSize: '1.5rem',
+      lineHeight: '1.75rem',
+      fontFamily: "'Plus Jakarta Sans', sans-serif;",
+    },
+    h4: {
+      fontWeight: 600,
+      fontSize: '1.3125rem',
+      lineHeight: '1.6rem',
+    },
+    h5: {
+      fontWeight: 600,
+      fontSize: '1.125rem',
+      lineHeight: '1.6rem',
+    },
+    h6: {
+      fontWeight: 600,
+      fontSize: '1rem',
+      lineHeight: '1.2rem',
+    },
+    button: {
+      textTransform: 'capitalize',
+      fontWeight: 400,
+    },
+    body1: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      lineHeight: '1.334rem',
+    },
+    body2: {
+      fontSize: '0.75rem',
+      letterSpacing: '0rem',
+      fontWeight: 400,
+      lineHeight: '1rem',
+    },
+    subtitle1: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+    },
+    subtitle2: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+    },
   },
 
   breakpoints: {

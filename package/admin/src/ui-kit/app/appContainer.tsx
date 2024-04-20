@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 
 import HeaderBar from '@ui-kit/app/components/HeaderBar';
-import SideBar from '@ui-kit/app/components/SideBar';
+import SideBar from '@ui-kit/app/components/SideBar/Sidebar';
 
 import { appTheme } from '@ui-kit/app/themes/appTheme';
 import Container from '@mui/material/Container';
@@ -14,13 +14,16 @@ import Container from '@mui/material/Container';
 import { Outlet } from 'react-router-dom';
 
 //사이드바 기본 확장 넓이
-const drawerWidth: number = 240;
+const drawerWidth: number = 270;
 
 export default function AppContainer() {
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
     <ThemeProvider theme={appTheme}>
@@ -35,9 +38,9 @@ export default function AppContainer() {
         />
 
         <SideBar
-          open={open}
-          toggleDrawer={toggleDrawer}
-          drawerWidth={drawerWidth}
+          isSidebarOpen={isSidebarOpen}
+          isMobileSidebarOpen={isMobileSidebarOpen}
+          onSidebarClose={() => setMobileSidebarOpen(false)}
         />
         <Box
           component="main"

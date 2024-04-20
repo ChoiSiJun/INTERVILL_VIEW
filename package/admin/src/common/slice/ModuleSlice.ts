@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import moduleList from '@common/slice/ModuleData';
 
-interface moduleMenuProps {
+export interface moduleMenuProps {
   menuCode: string;
   menuName: string;
   menuPath: string;
@@ -11,14 +11,14 @@ interface moduleMenuProps {
   }[];
 }
 
-interface moduleListProps {
+export interface moduleProps {
   moduleCode: string;
   moduleName: string;
   menuList?: moduleMenuProps[];
 }
 
 interface ModuleInfoProps {
-  moduleList: moduleListProps[];
+  moduleList: moduleProps[];
   accessModuleCode: string;
   accessModuleName: string;
   accessMenuCode: string;
