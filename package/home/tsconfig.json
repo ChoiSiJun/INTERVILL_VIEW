@@ -6,40 +6,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "noFallthroughCasesInSwitch": true
   },
-  "extends": [
-    "../../tsconfig.base.json",
-    "./tsconfig.paths.json"
-  ],
-  "include": [
-    "src/**/*.tsx",
-    "src/**/*.ts",
-    "*.js",
-    ".next/types/**/*.ts"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "extends": ["../../tsconfig.base.json", "./tsconfig.paths.json"],
+  "include": ["src/**/*.tsx", "src/**/*.ts", "*.js"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

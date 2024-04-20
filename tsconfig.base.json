@@ -18,13 +18,13 @@
   "references": [
     // 해당 패키지를 참조할수있음
     {
-      "path": "./packages/core"
+      "path": "./package/core"
     },
     {
-      "path": "./packages/admin"
+      "path": "./package/admin"
     },
     {
-      "path": "./packages/home"
+      "path": "./package/home"
     }
   ]
 }
