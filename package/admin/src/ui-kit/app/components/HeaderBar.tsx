@@ -1,5 +1,5 @@
 import Toolbar from '@mui/material/Toolbar';
-
+import { useMediaQuery, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -36,6 +36,7 @@ const AppBar = styled(MuiAppBar, {
 //Liberty HeaderBar Type
 interface HeaderBarProps {
   open: boolean;
+  setMobileSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
   toggleDrawer: () => void;
   drawerWidth: number;
   title: string;
@@ -48,8 +49,22 @@ const HeaderBar = ({
   drawerWidth,
   title,
 }: HeaderBarProps) => {
+  const currentTheme = useTheme(); // 현재 테마 객체 가져오기
+  const lgUp = useMediaQuery(currentTheme.breakpoints.up('lg'));
+
+  const HandleMobileSideOpen = (
+    setMobileSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  ) => {
+    console.log('체크중');
+    setMobileSidebarOpen(true);
+  };
+
   return (
-    <AppBar position="absolute" open={open} drawerWidth={drawerWidth}>
+    <AppBar
+      position="absolute"
+      open={open}
+      drawerWidth={lgUp ? drawerWidth : 0}
+    >
       <Toolbar
         sx={{
           pr: '24px', // keep right padding when drawer closed
@@ -59,10 +74,10 @@ const HeaderBar = ({
           edge="start"
           color="inherit"
           aria-label="open drawer"
-          onClick={toggleDrawer}
+          onClick={HandleMobileSideOpen}
           sx={{
             marginRight: '36px',
-            ...(open && { display: 'none' }),
+            ...(open && { display: lgUp ? 'none' : 'block' }),
           }}
         >
           <MenuIcon />

@@ -32,6 +32,7 @@ export default function AppContainer() {
 
         <HeaderBar
           open={open}
+          setMobileSidebarOpen={setMobileSidebarOpen}
           toggleDrawer={toggleDrawer}
           drawerWidth={drawerWidth}
           title={'Liberty Cloud'}
