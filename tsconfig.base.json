@@ -25,6 +25,9 @@
     },
     {
       "path": "./package/home"
+    },
+    {
+      "path": "./package/mobile"
     }
   ]
 }
