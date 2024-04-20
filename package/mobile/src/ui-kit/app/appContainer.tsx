@@ -36,7 +36,7 @@ export default function AppContainer() {
           setMobileSidebarOpen={setMobileSidebarOpen}
           toggleDrawer={toggleDrawer}
           drawerWidth={drawerWidth}
-          title={'앨리스토리'}
+          title={'INTERVII'}
         />
 
         <SideBar

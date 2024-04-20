@@ -7,11 +7,8 @@ import { GridColDef } from '@mui/x-data-grid';
 const api_url = import.meta.env.VITE_MEMBER_API;
 
 //searchMemberListThunk Request Type
-interface SearchMemberListProps {
-  searchType: string;
-  memberId: string;
-  page: string;
-  size: string;
+interface UserAnswer {
+  content:string;
 }
 
 const columnsData: GridColDef[] = [
