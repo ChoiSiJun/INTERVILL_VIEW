@@ -47,14 +47,13 @@ const HeaderBar = ({
   open,
   toggleDrawer,
   drawerWidth,
+  setMobileSidebarOpen,
   title,
 }: HeaderBarProps) => {
   const currentTheme = useTheme(); // 현재 테마 객체 가져오기
   const lgUp = useMediaQuery(currentTheme.breakpoints.up('lg'));
 
-  const HandleMobileSideOpen = (
-    setMobileSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  ) => {
+  const HandleMobileSideOpen = () => {
     console.log('체크중');
     setMobileSidebarOpen(true);
   };
