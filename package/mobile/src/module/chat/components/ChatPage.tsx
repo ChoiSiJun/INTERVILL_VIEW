@@ -20,10 +20,8 @@ const ChatPage = () => {
   const [qSequence, setQSequence] = useState(1);
   const [inputValue, setInputValue] = useState('');
 
-  const submitAnswer = () => {
+  const submitAnswer = (e) => {
     if(questions.length == qSequence) return false;
-    console.log(qSequence);
-    console.log(answers);
     const answer = {
       title : "",
       content:inputValue
@@ -36,6 +34,8 @@ const ChatPage = () => {
   const handleInputChange = (e) => {
       setInputValue(e.target.value);
   };
+
+  //채팅 데이터 렌더링
   const renderChatSurvey = () => {
     return (Array.from({ length: qSequence }, (_, index) => (
       <Box key={index} sx={{width: '100%', display:'inline-block'}}>
@@ -64,19 +64,7 @@ const ChatPage = () => {
 
   return (
     <Container sx={{maxHeight: '80vh', overflow: 'auto' , paddingBottom:3}}>
-      {/* <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }}>
-      </Box> */}
         {renderChatSurvey()}
-        {/* <ToUserQuestion title={'프로그래밍 언어 경험'} 
-                        content={'현재 사용하고 있는 프로그래밍 언어는 무엇인가요?'} 
-                        config={{showTitle:false, showCancel:false, showConfirm:false}}
-                        confirm={() => { return false ;}}
-                        cancel={() => { return false; }}/>
-        <FromUserQuestion title={''} 
-                        content={'Java와 Python, 웹 서버를 만들기 쉽고 레퍼런스가 많이 있어서'} 
-                        config={{showTitle:false, showCancel:false, showConfirm:false}}
-                        confirm={() => { return false ;}}
-                        cancel={() => { return false; }}/> */}
       {/* <RadioDirection /> */}
       <Box
         component="form"

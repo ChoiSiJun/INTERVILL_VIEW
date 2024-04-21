@@ -20,7 +20,10 @@ const sampleQuestions: Question[]= [
       , placeholder: "기술 문서 체크, 유튜브, 인터넷 강의, 스터디"},
     { title: "기술 동향 예측"
       , content: "앞으로 전망이 있어보이는 기술이나 서비스는 어떤것이라고 생각하시나요?"
-      , placeholder: "AI, React, Java"}
+      , placeholder: "AI, React, Java"},
+    { title: "설문 종료"
+      , content: "설문에 참여해 주셔서 감사합니다."
+      , placeholder: "잠시 후 완료페이지로 이동합니다."}
 ]
 
 export default sampleQuestions;
