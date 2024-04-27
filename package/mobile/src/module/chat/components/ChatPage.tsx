@@ -1,10 +1,13 @@
-import RadioDirection from '@common/components/molecule/chat/answer/RadioDirection';
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Button from '@mui/material/Button';
 import ToUserQuestion from '@module/chat/components/message/ToUserQuestion'
 import FromUserQuestion from '@module/chat/components/message/FromUserQuestion'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@config/ReduxHooks';
+import { answerForQuestion, surveyStartInfo } from '@module/chat/slice/SurveyStartInfoSlice';
+import { useParams } from 'react-router-dom';
 
 import sampleQuestions from '@module/chat/sample/questions';
 import { Container } from '@mui/material';
@@ -15,13 +18,60 @@ interface Answer {
 }
 
 const ChatPage = () => {
-  const [questions, setQuestions] = useState(sampleQuestions);
+  //const [questions, setQuestions] = useState(sampleQuestions);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [qSequence, setQSequence] = useState(1);
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useAppDispatch();
+  const answerField = useRef(null);
+  const surveyStart = useAppSelector(state => {
+    return state.SurveyStart;
+    });
+  const { surveyId } = useParams();
+  
+  const handlerSurveyInfo = async () => {
+    try {
+      //멤버정보 세팅
+      await dispatch(
+        surveyStartInfo({
+          svyId: surveyId || '',
+          memberId: '' || 'guestId',
+        }),
+      );
+      
+    } catch (error) {
+      console.error(error);
+      console.log('오류');
+    }
+  };
 
-  const submitAnswer = (e) => {
-    if(questions.length == qSequence) return false;
+  const handlerAnswerForQuestion = async () => {
+    try {
+      //멤버정보 세팅
+      await dispatch(
+        answerForQuestion({
+          svyId: surveyStart.svyId || '',
+          memberId: surveyStart.rspn.userId || 'guestId',
+          rspnId: surveyStart.rspn.id || '',
+          qstnId: surveyStart.questions[qSequence].id,
+          ansTypeCod : surveyStart.questions[qSequence].type,
+          ansVal : answerField.current.value
+        }),
+      );
+      
+    } catch (error) {
+      console.error(error);
+      console.log('오류');
+    }
+  };
+
+  useEffect(() => {
+    handlerSurveyInfo();
+  }, []); // 의존성 배열이 비어있어 컴포넌트가 처음 마운트될 때만 실행됩니다.
+
+  const submitAnswer = () => {
+    if(surveyStart.questions.length == qSequence) return false;
+    handlerAnswerForQuestion();
     const answer = {
       title : "",
       content:inputValue
@@ -33,15 +83,15 @@ const ChatPage = () => {
 
   const handleInputChange = (e) => {
       setInputValue(e.target.value);
-  };
+  }
 
   //채팅 데이터 렌더링
   const renderChatSurvey = () => {
     return (Array.from({ length: qSequence }, (_, index) => (
       <Box key={index} sx={{width: '100%', display:'inline-block'}}>
-        <ToUserQuestion title={questions[index].title} 
-              content={questions[index].content} 
-              placeholder={questions[index].placeholder}
+        <ToUserQuestion title={surveyStart.questions[index].title} 
+              content={surveyStart.questions[index].content} 
+              placeholder={surveyStart.questions[index].placeholder}
               config={{showTitle:false, showCancel:false, showConfirm:false}}
               focus={(qSequence-1 == index)}
               confirm={() => { return false ;}}
@@ -77,6 +127,7 @@ const ChatPage = () => {
           label="Standard" 
           variant="standard" 
           value={inputValue}
+          inputRef={answerField}
           onChange={handleInputChange}/>
         <Button variant="contained"
           title='submit'
