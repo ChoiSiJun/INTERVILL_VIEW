@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/lab": "^5.0.0-alpha.170",
     "@reduxjs/toolkit": "^2.2.1",
     "bootstrap": "^5.3.3",
     "react": "^18.2.0",

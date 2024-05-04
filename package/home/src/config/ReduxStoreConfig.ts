@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import MemberSlice from '@module/member/slice/MemberSlice';
-import MemberListSlice from '@module/member/slice/MemberListSlice';
 import ModuleSlice from '@common/slice/ModuleSlice';
+import SurveyEditInfoSlice from '@module/survey/slice/SurveyEditSlice';
+import QuestionApi from '@module/survey/slice/QustionEditApi';
 
 export const store = configureStore({
   reducer: {
     Module: ModuleSlice,
-    Member: MemberSlice,
-    MemberList: MemberListSlice,
+    SurveyEditInfo : SurveyEditInfoSlice,
+    qstnApi : QuestionApi.reducer
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(QuestionApi.middleware),
+  
 });
 
 export type RootState = ReturnType<typeof store.getState>;

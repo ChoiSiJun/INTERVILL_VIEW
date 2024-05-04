@@ -11,7 +11,7 @@ const moduleInfo = [
   },
   {
     moduleCode: 'SURVEY',
-    moduleName: '설문조사',
+    moduleName: '설문지관리',
     menuList: SurveyModule,
   },
 ];
