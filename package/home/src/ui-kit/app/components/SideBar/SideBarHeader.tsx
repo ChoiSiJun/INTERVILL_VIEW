@@ -1,15 +1,8 @@
-import { Link } from 'react-router-dom';
-import { Box, Typography, styled, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import Button from '@mui/material/Button';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
-
-const LinkStyled = styled(Link)(() => ({
-  height: '90px',
-  width: '180px',
-  overflow: 'hidden',
-  display: 'block',
-}));
+import UserInfoBox from './UserInfoBox';
 
 const SideBarHeader = () => {
   const theme = useTheme(); // 테마 객체를 가져옵니다.
@@ -22,17 +15,6 @@ const SideBarHeader = () => {
         justifyContent: 'center',
       }}
     >
-      <LinkStyled
-        to="/liberty/dashboard"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <img src={''} alt="Logo" width={'50%'} height={'50%'} />
-      </LinkStyled>
-
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Button
           variant="contained"

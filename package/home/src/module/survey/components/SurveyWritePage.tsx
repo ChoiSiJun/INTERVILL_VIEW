@@ -1,4 +1,3 @@
-
 import { Container } from '@mui/material';
 import { surveyCreateReqThunk } from '../slice/SurveyEditSlice';
 import { useAppDispatch, useAppSelector } from '@config/ReduxHooks';
@@ -6,14 +5,13 @@ import { useEffect } from 'react';
 import DocumentTap from '@module/survey/components/tap/DocumentTap';
 import { useParams } from 'react-router-dom';
 
-
 const SurveyWritePage = () => {
   const dispatch = useAppDispatch();
   const param = useParams();
   const surveyEditInfo = useAppSelector(state => {
     return state.SurveyEditInfo;
-    });
-    console.log("param ::", param);
+  });
+  console.log('param ::', param);
   const handlerSurveyCreate = async () => {
     try {
       //멤버정보 세팅
@@ -23,7 +21,6 @@ const SurveyWritePage = () => {
           userId: '' || 'guestId',
         }),
       );
-      
     } catch (error) {
       console.error(error);
       console.log('오류');

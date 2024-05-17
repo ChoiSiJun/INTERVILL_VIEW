@@ -1,5 +1,5 @@
 import Toolbar from '@mui/material/Toolbar';
-import { useMediaQuery, useTheme } from '@mui/material';
+import { Box, Divider, useMediaQuery, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
@@ -7,6 +7,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { styled } from '@mui/material/styles';
+import UserInfoBox from './SideBar/UserInfoBox';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HelpIcon from '@mui/icons-material/Help';
 
 //Mui AppBar Type
 interface AppBarProps extends MuiAppBarProps {
@@ -32,6 +35,8 @@ const AppBar = styled(MuiAppBar, {
     }),
   }),
 }));
+
+const IconArea = styled(Box)(() => ({ display: 'flex', gap: 10 }));
 
 //Liberty HeaderBar Type
 interface HeaderBarProps {
@@ -89,11 +94,24 @@ const HeaderBar = ({
         >
           {title}
         </Typography>
-        <IconButton color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
+        <IconArea>
+          <IconButton color="inherit">
+            <Badge badgeContent={2} color="secondary">
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
+
+          <IconButton color="inherit">
+            <SettingsIcon />
+          </IconButton>
+
+          <IconButton color="inherit">
+            <HelpIcon />
+          </IconButton>
+
+          <Divider orientation="vertical" flexItem />
+          <UserInfoBox />
+        </IconArea>
       </Toolbar>
     </AppBar>
   );
