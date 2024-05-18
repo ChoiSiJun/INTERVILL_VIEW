@@ -9,7 +9,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { ModalHandler, ModalState } from './DocumentEditor';
 import Stack from '@mui/material/Stack';
 import { Divider } from '@mui/material';
-import QuestionApi from '@module/survey/slice/QustionEditApi';
+import QuestionApi from '@module/survey/slice/QuestionEditApi';
 import { useAppSelector } from '@config/ReduxHooks';
 
 const style = {

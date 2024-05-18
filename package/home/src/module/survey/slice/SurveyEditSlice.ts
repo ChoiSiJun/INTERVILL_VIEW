@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AsyncThunkErrorProps } from '@common/type/commonType';
 import axios, { AxiosResponse, AxiosError } from 'axios';
-import QuestionApi from './QustionEditApi';
+import QuestionApi from './QuestionEditApi';
 
 const api_url = import.meta.env.VITE_HOME_API;
 
@@ -10,10 +10,10 @@ interface SurveyResponse {
 }
 
 export interface SurveyM {
-  frst_rgst_dttm: string;
-  frst_rgst_user: string;
-  last_updt_dttm: string;
-  last_updt_user: string;
+  frstRgstDttm: string;
+  frstRgstUser: string;
+  lastUpdtDttm: string;
+  lastUpdtUser: string;
   userId: string;
   fldrId: string;
   svySttusCod: string;
@@ -31,10 +31,10 @@ export interface SurveyM {
 }
 
 export interface SurveyProperty {
-  frst_rgst_dttm: string;
-  frst_rgst_user: string;
-  last_updt_dttm: string;
-  last_updt_user: string;
+  frstRgstDttm: string;
+  frstRgstUser: string;
+  lastUpdtDttm: string;
+  lastUpdtUser: string;
   svyPropId: string;
   svyPropTypeCod: string;
   svyPropVal: string;
@@ -45,10 +45,10 @@ export interface SurveyProperty {
 }
 
 export interface QuestionM {
-  frst_rgst_dttm: string;
-  frst_rgst_user: string;
-  last_updt_dttm: string;
-  last_updt_user: string;
+  frstRgstDttm: string;
+  frstRgstUser: string;
+  lastUpdtDttm: string;
+  lastUpdtUser: string;
   qstnId: string;
   qstnTypeCod: string;
   qstnTitle: string;
@@ -66,10 +66,10 @@ const initialState: SurveyResponse = {
   surveyM: {
       id: "",
       userId: "",
-      frst_rgst_dttm: "",
-      frst_rgst_user: "",
-      last_updt_dttm: "",
-      last_updt_user: "",
+      frstRgstDttm: "",
+      frstRgstUser: "",
+      lastUpdtDttm: "",
+      lastUpdtUser: "",
       fldrId: "/",
       svySttusCod: "001",
       svyStartDttm: null,
@@ -79,10 +79,10 @@ const initialState: SurveyResponse = {
       svyQstnSeqList: "",
       svyProps: [
           {
-              frst_rgst_dttm: "",
-              frst_rgst_user: "",
-              last_updt_dttm: "",
-              last_updt_user: "",
+              frstRgstDttm: "",
+              frstRgstUser: "",
+              lastUpdtDttm: "",
+              lastUpdtUser: "",
               svyPropId: "",
               svyPropTypeCod: "",
               svyPropVal: "",
@@ -94,10 +94,10 @@ const initialState: SurveyResponse = {
       ],
       qstnM: [
           {
-              frst_rgst_dttm: "",
-              frst_rgst_user: "",
-              last_updt_dttm: "",
-              last_updt_user: "",
+              frstRgstDttm: "",
+              frstRgstUser: "",
+              lastUpdtDttm: "",
+              lastUpdtUser: "",
               qstnId: "",
               qstnTypeCod: "",
               qstnTitle: "",
@@ -120,7 +120,7 @@ const initialState: SurveyResponse = {
 
 interface SurveyCreateRequest{
   svyId : string;
-  userId : string;
+  providerId : string;
 }
 
 export const surveyCreateReqThunk = createAsyncThunk<
@@ -157,41 +157,42 @@ export const surveyCreateReqThunk = createAsyncThunk<
 });
 
 
-// interface SurveyInquiryRequest{
-//   svyId : string;
-//   userId : string;
-// }
-// export const SurveyInquiryReqThunk = createAsyncThunk<
-//   Record<string, string | number | null>[],
-//   SurveyInquiryRequest,
-//   { rejectValue: AsyncThunkErrorProps }
-// >('SurveyInquiry', async (SearchQuery, thunkAPI) => {
-//   const params = new URLSearchParams();
-//   for (const key in SearchQuery) {
-//     if (Object.prototype.hasOwnProperty.call(SearchQuery, key)) {
-//       const typedKey = key as keyof SurveyInquiryRequest; // 타입 단언을 사용하여 실제 속성임을 명시
-//       if (SearchQuery[typedKey] !== undefined) {
-//         params.append(typedKey, SearchQuery[typedKey]);
-//       }
-//     }
-//   }
-//   try {
-//     const responseData = await axios.get(
-//       `${api_url}/survey/v1/inqSurveyInfo?${params}`,
-//     );
-//     console.log(responseData.status);
-//     if (responseData.status !== 200) {
-//       throw new Error('응답코드 반환에러');
-//     }
-
-//     return responseData.data.surveyM.svyId;
-//   } catch (error) {
-//     return thunkAPI.rejectWithValue({
-//       errorMessage: '알 수 없는 에러가 발생했습니다.',
-//       errorCode: 500,
-//     });
-//   }
-// });
+export interface SurveyInquiryRequest{
+  svyId : string;
+  providerId : string;
+}
+export const SurveyInquiryReqThunk = createAsyncThunk<
+  Record<string, string | number | null>[],
+  SurveyInquiryRequest,
+  { rejectValue: AsyncThunkErrorProps }
+>('SurveyInquiry', async (SearchQuery, thunkAPI) => {
+  const params = new URLSearchParams();
+  for (const key in SearchQuery) {
+    if (Object.prototype.hasOwnProperty.call(SearchQuery, key)) {
+      const typedKey = key as keyof SurveyCreateRequest; // 타입 단언을 사용하여 실제 속성임을 명시
+      if (SearchQuery[typedKey] !== undefined) {
+        params.append(typedKey, SearchQuery[typedKey]);
+      }
+    }
+  }
+  try {
+    const responseData = await axios.post(
+      `${api_url}/survey/v1/inqSurveyInfo`
+      ,SearchQuery
+    );
+    
+    if (responseData.status !== 200) {
+      throw new Error('응답코드 반환에러');
+    }
+    console.log(responseData);
+    return responseData.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue({
+      errorMessage: '알 수 없는 에러가 발생했습니다.',
+      errorCode: 500,
+    });
+  }
+});
 
 export const SurveyEditInfoSlice = createSlice({
     // slice 이름정의
@@ -213,6 +214,17 @@ export const SurveyEditInfoSlice = createSlice({
           state.surveyM = payload.surveyM;
         })
         .addCase(surveyCreateReqThunk.rejected, (e) => {
+          console.error(e);
+          //TODO 이용자를 이전화면으로 돌려주고, 오류에 관한 내용을 안내해 주어야함.
+        })
+        .addCase(SurveyInquiryReqThunk.pending, (state) => {
+          console.log('pending...', state);
+        })
+        .addCase(SurveyInquiryReqThunk.fulfilled, (state, {payload}) => {
+          console.log("payload ::", payload);
+          state.surveyM = payload.surveyM;
+        })
+        .addCase(SurveyInquiryReqThunk.rejected, (e) => {
           console.error(e);
           //TODO 이용자를 이전화면으로 돌려주고, 오류에 관한 내용을 안내해 주어야함.
         })

@@ -1,6 +1,6 @@
 
 import { Container } from '@mui/material';
-import { surveyCreateReqThunk } from '../slice/SurveyEditSlice';
+import { surveyCreateReqThunk, SurveyInquiryReqThunk, SurveyInquiryRequest } from '../slice/SurveyEditSlice';
 import { useAppDispatch, useAppSelector } from '@config/ReduxHooks';
 import { useEffect } from 'react';
 import DocumentTap from '@module/survey/components/tap/DocumentTap';
@@ -9,18 +9,23 @@ import { useParams } from 'react-router-dom';
 
 const SurveyWritePage = () => {
   const dispatch = useAppDispatch();
-  const param = useParams();
+  const { svyId } = useParams();
   const surveyEditInfo = useAppSelector(state => {
     return state.SurveyEditInfo;
     });
-    console.log("param ::", param);
+    console.log("param ::", svyId);
   const handlerSurveyCreate = async () => {
     try {
       //멤버정보 세팅
       await dispatch(
+        svyId ? 
+        SurveyInquiryReqThunk({
+          svyId: svyId ?? '',
+          providerId: '' || 'guestId',
+        }) : 
         surveyCreateReqThunk({
-          svyId: 'e' || '',
-          userId: '' || 'guestId',
+          svyId: svyId ?? '',
+          providerId: '' || 'guestId',
         }),
       );
       

@@ -1,3 +1,4 @@
+import { createSlice } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const api_url = import.meta.env.VITE_HOME_API;
@@ -42,7 +43,8 @@ export const QuestionApi = createApi({
             invalidatesTags: ['Qstn']
         }),
     })
-})
+});
+
 
 export default QuestionApi;
 // export const {
