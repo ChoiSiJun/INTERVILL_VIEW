@@ -1,12 +1,5 @@
 import { useAppSelector } from '@config/ReduxHooks';
-import {
-  Box,
-  Button,
-  Divider,
-  IconButton,
-  Typography,
-  styled,
-} from '@mui/material';
+import { Box, Button, IconButton, Typography, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React, { useState } from 'react';

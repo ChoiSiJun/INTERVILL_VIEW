@@ -14,10 +14,10 @@ const LoginProcess = () => {
 
     if (isNotEmpty(userInfo)) {
       dispatch(login(userInfo));
-      navigate('/');
+      navigate('/survey');
     } else {
       console.log('로그인 인증에러');
-      navigate('/');
+      navigate('/login');
     }
   }, [dispatch, navigate]);
 
