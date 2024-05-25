@@ -9,7 +9,7 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 
-const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
+const options = ['프로필이미지', 'Squash and merge', 'Rebase and merge'];
 
 export default function SurveyPropButton() {
   const [open, setOpen] = React.useState(false);
@@ -47,6 +47,7 @@ export default function SurveyPropButton() {
     <React.Fragment>
       <ButtonGroup
         size='small'
+        sx={{minHeight:37}}
         variant="contained"
         ref={anchorRef}
         aria-label="Button group with a nested menu"

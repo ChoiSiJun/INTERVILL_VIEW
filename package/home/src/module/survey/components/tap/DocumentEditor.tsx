@@ -11,7 +11,8 @@ import Button from '@mui/material/Button';
 import { QuestionM, SurveyM } from '@module/survey/slice/SurveyEditSlice';
 import { useAppSelector } from '@config/ReduxHooks';
 import QuestionCard from './QuestionCard';
-import QuestionApi from '@module/survey/slice/QustionEditApi';
+import QuestionApi from '@module/survey/slice/QuestionEditApi';
+
 import QuestionEditor from './QuestionEditor';
 import { useState } from 'react';
 
@@ -40,7 +41,7 @@ function SuveyPropertiesGrid() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid xs={3}>
-          <GridItem sx={{ padding: 0 }} elevation={0}>
+          <GridItem sx={{ padding: 0, minHeight: 37 }} elevation={0}>
             <SurveyPropButton></SurveyPropButton>
           </GridItem>
         </Grid>
@@ -50,8 +51,8 @@ function SuveyPropertiesGrid() {
               sx={{ width: '100%' }}
               size="small"
               id="standard-basic"
-              label="Standard"
-              variant="standard"
+              label="Outlined"
+              variant="outlined"
             />
           </GridItem>
         </Grid>
