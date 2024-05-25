@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import ModuleSlice from '@common/slice/ModuleSlice';
 import SurveyEditInfoSlice from '@module/survey/slice/SurveyEditSlice';
 
-import QuestionApi from '@module/survey/slice/QustionEditApi';
+import QuestionApi from '@module/survey/slice/QuestionEditApi';
 import SurveyInfoListoSlice from '@module/survey/slice/SurveyListSlice';
 import AuthProcessSlice from '@features/auth/authSlice';
 import storage from 'redux-persist/lib/storage/session';
